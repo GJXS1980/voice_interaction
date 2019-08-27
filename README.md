@@ -55,6 +55,79 @@ rosrun baidu_speech baidu_tts.py
 
 
 
+### pocketsphinx
+pocketsphinx文件目录如下：
+```bash
+pocketsphinx
+├── CMakeLists.txt
+├── deb
+│   ├── gstreamer0.10-pocketsphinx_0.8-5_amd64.deb
+│   ├── libpocketsphinx1_0.8-5_amd64.deb
+│   ├── libsphinxbase1_0.8-6_amd64.deb
+│   └── pocketsphinx-hmm-en-tidigits_0.8-5_all.deb
+├── demo
+│   ├── robocup.corpus
+│   ├── robocup.dic
+│   ├── robocup.launch
+│   ├── robocup.lm
+│   ├── robocup_r1.launch
+│   ├── robocup_r2.launch
+│   ├── turtlebot_voice_cmd.launch
+│   ├── voice_cmd.corpus
+│   ├── voice_cmd.dic
+│   ├── voice_cmd.launch
+│   └── voice_cmd.lm
+├── model
+│   ├── hmm
+│   │   └── en
+│   │       └── tidigits
+│   │           ├── feat.params
+│   │           ├── mdef
+│   │           ├── means
+│   │           ├── sendump
+│   │           ├── transition_matrices
+│   │           └── variances
+│   └── lm
+│       └── en
+│           ├── tidigits.dic
+│           ├── tidigits.DMP
+│           └── tidigits.fsg
+├── package.xml
+├── README.md
+└── scripts
+    ├── recognizer.py
+    └── voice_cmd_vel.py
+```
+
+##### 安装依赖
+```bash
+sudo apt-get install ros-kinetic-audio-common
+sudo apt-get install libasound2
+sudo apt-get install gstreamer0.10-*
+sudo apt-get install python-gst0.10
+```
+
+```bash
+svn co https://github.com/GJXS1980/voice_interaction.git
+cd deb/
+sudo dpkg -i *.deb
+cd  model
+sudo cp /usr/share/pocketsphinx/model/* ~/catkin_ws/src/pocketsphinx/model -r
+
+```
+
+##### 编译
+```
+cd ~/catkin_ws/
+catkin_make
+```
+
+##### 测试pocketsphinx的语音识别功能
+
+```bash
+roslaunch pocketsphinx robocup.launch
+```
+
 
 
 
