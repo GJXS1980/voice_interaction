@@ -246,7 +246,7 @@ sudo apt-get install gstreamer1.0
 ### 下载源码、编译
 ```bash
 cd ~/catkin_ws/src
-
+svn co https://github.com/GJXS1980/voice_interaction/trunk/audio_common
 cd ~/catkin_ws/
 catkin_make
 
