@@ -266,6 +266,95 @@ rosrun sound_play say.py "Welcome to my home" voice_don_diphone
 
 
 ### AIML的使用
+AIML功能包目录如下：
+```bash
+ros_aiml
+├── CMakeLists.txt
+├── data
+│   ├── ai.aiml
+│   ├── alice.aiml
+│   ├── astrology.aiml
+│   ├── atomic.aiml
+│   ├── badanswer.aiml
+│   ├── biography.aiml
+│   ├── bot.aiml
+│   ├── bot_profile.aiml
+│   ├── client.aiml
+│   ├── client_profile.aiml
+│   ├── computers.aiml
+│   ├── continuation.aiml
+│   ├── date.aiml
+│   ├── default.aiml
+│   ├── drugs.aiml
+│   ├── emotion.aiml
+│   ├── food.aiml
+│   ├── geography.aiml
+│   ├── gossip.aiml
+│   ├── history.aiml
+│   ├── humor.aiml
+│   ├── imponderables.aiml
+│   ├── inquiry.aiml
+│   ├── interjection.aiml
+│   ├── iu.aiml
+│   ├── junktest.text
+│   ├── knowledge.aiml
+│   ├── literature.aiml
+│   ├── loebner10.aiml
+│   ├── money.aiml
+│   ├── movies.aiml
+│   ├── mp0.aiml
+│   ├── mp1.aiml
+│   ├── mp2.aiml
+│   ├── mp3.aiml
+│   ├── mp4.aiml
+│   ├── mp5.aiml
+│   ├── mp6.aiml
+│   ├── music.aiml
+│   ├── numbers.aiml
+│   ├── personality.aiml
+│   ├── phone.aiml
+│   ├── pickup.aiml
+│   ├── politics.aiml
+│   ├── primeminister.aiml
+│   ├── primitive-math.aiml
+│   ├── psychology.aiml
+│   ├── pyschology.aiml
+│   ├── reduction0.safe.aiml
+│   ├── reduction1.safe.aiml
+│   ├── reduction2.safe.aiml
+│   ├── reduction3.safe.aiml
+│   ├── reduction4.safe.aiml
+│   ├── reduction.names.aiml
+│   ├── reductions-update.aiml
+│   ├── religion.aiml
+│   ├── salutations.aiml
+│   ├── science.aiml
+│   ├── sex.aiml
+│   ├── sports.aiml
+│   ├── stack.aiml
+│   ├── standard.brn
+│   ├── startup.xml
+│   ├── startup.xml~
+│   ├── stories.aiml
+│   ├── that.aiml
+│   ├── update1.aiml
+│   ├── update_mccormick.aiml
+│   ├── wallace.aiml
+│   └── xfind.aiml
+├── launch
+│   ├── start_chat.launch
+│   ├── start_speech_chat.launch
+│   └── start_tts_chat.launch
+├── package.xml
+└── scripts
+    ├── aiml_client.py
+    ├── aiml_server.py
+    ├── aiml_speech_recog_client.py
+    └── aiml_tts_client.py
+```
+
+
+
 ##### 安装PyAIML
 ```bash
 sudo apt-get install python-aiml
