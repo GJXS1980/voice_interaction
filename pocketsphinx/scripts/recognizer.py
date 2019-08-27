@@ -85,8 +85,13 @@ class recognizer(object):
         #self.asr.set_property('configured', True)
         self.asr.set_property('dsratio', 1)
         self.asr.set_property('lm', '/usr/share/pocketsphinx/model/lm/en/tidigits.DMP')
+        self.asr.set_property('lm', '/usr/share/pocketsphinx/model/lm/zh_CN/gigatdt.5000.DMP')
+
         self.asr.set_property('dict', '/usr/share/pocketsphinx/model/lm/en/tidigits.dic')
+        self.asr.set_property('dict', '/usr/share/pocketsphinx/model/lm/zh_CN/mandarin_notone.dic')
+        
         self.asr.set_property('hmm', '/usr/share/pocketsphinx/model/hmm/en/tidigits')
+        self.asr.set_property('hmm', '/usr/share/pocketsphinx/model/hmm/zh/tdt_sc_8k')
 
         # Configure language model
         if rospy.has_param(self._lm_param):
