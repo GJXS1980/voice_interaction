@@ -108,10 +108,11 @@ sudo apt-get install python-gst0.10
 ```
 
 ```bash
-svn co https://github.com/GJXS1980/voice_interaction.git
-cd deb/
+cd ~/catkin_ws/src
+svn co https://github.com/GJXS1980/voice_interaction/trunk/pocketsphinx
+cd voice_interaction/pocketsphinx/deb/
 sudo dpkg -i *.deb
-cd  model
+cd ../model
 sudo cp /usr/share/pocketsphinx/model/* ~/catkin_ws/src/pocketsphinx/model -r
 
 ```
