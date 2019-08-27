@@ -243,7 +243,7 @@ sudo apt-get install gstreamer1.0
 然后重新安装上面的依赖。
 
 
-### 下载源码、编译
+##### 下载源码、编译
 ```bash
 cd ~/catkin_ws/src
 svn co https://github.com/GJXS1980/voice_interaction/trunk/audio_common
@@ -263,6 +263,46 @@ roscore
 rosrun sound_play soundplay_node.py
 rosrun sound_play say.py "Welcome to my home" voice_don_diphone
 ```
+
+
+### AIML的使用
+##### 安装PyAIML
+```bash
+sudo apt-get install python-aiml
+
+```
+
+##### 测试是否安装成功
+```bash
+python
+
+# 进入python环境之后输入下面程序
+>>> import aiml
+
+```
+当没有出现任何错误信息的时候，说明已经安装成功了。
+
+### 测试功能
+使用下面命令于AIML解释器进行交互
+```bash
+roslaunch ros_aiml start_chat.launch
+```
+使用下面命令于AIML解释器进行交互,答复将转换为语音：
+```bash
+roslaunch ros_aiml start_tts_chat.launch
+```
+启动语音识别和TTS：
+```bash
+roslaunch ros_aiml start_speech_chat.launch 
+```
+手动输入语音测试：
+```bash
+rostopic pub /recognizer/output std_msgs/String "data: 'Hello'"
+```
+
+
+
+
 
 
 
