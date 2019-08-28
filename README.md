@@ -24,6 +24,7 @@ baidu_speech
 
 ##### 依赖
 ```bash
+sudo apt-get install python3-pip
 sudo pip install baidu_api
 sudo pip install playsound
 python -m pip install pyaudio
