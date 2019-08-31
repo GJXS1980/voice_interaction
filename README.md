@@ -25,7 +25,7 @@ baidu_speech
 ##### 依赖
 ```bash
 sudo apt-get install python3-pip
-sudo pip install baidu_api
+pip install git+https://github.com/Baidu-AIP/python-sdk.git@master
 sudo pip install playsound
 python -m pip install pyaudio
 pip install python-vlc
@@ -54,7 +54,12 @@ roslaunch baidu_speech simple_voice.launch
 rosrun baidu_speech baidu_tts.py
 ```
 
+##### 聊天机器人（百度语音加图灵机器人）
+```bash
+roslaunch baidu_speech voice_speech.launch
 
+roslaunch baidu_speech Chat_Robot.launch
+```
 
 ### pocketsphinx
 pocketsphinx文件目录如下：
@@ -389,6 +394,150 @@ roslaunch ros_aiml start_speech_chat.launch
 ```bash
 rostopic pub /recognizer/output std_msgs/String "data: 'Hello'"
 ```
+
+
+### 科大讯飞语音交互
+
+##### 依赖安装
+```bash
+sudo apt-get update
+
+sudo apt-get install libasound2-dev 
+```
+
+##### 源码下载及编译
+```bash
+cd xf-ros/xfei_asr/lib
+sudo cp libmsc.so /usr/lib/
+
+cd ~/catkin_ws
+catkin_make
+```
+##### 语音唤醒
+
+
+
+
+##### 语音采集
+```bash
+roslaunch audio_collect audio_collect.launch
+
+# 调用服务
+rosservice call /collect 1
+
+# 播放录制的音频
+cd /home/gjxs/.ros/source/AIUI/audio/1.wav
+```
+
+##### 语音识别
+```bash
+roscore 
+
+rosrun xf_ros iat_publish
+
+rostopic pub /voiceWakeup std_msgs/String "data: 'hello'"
+```
+
+##### 语义识别
+```bash
+
+
+roslaunch aiui_semantic aiui_semantic.launch 
+
+rosservice call /aiui '/home/gjxs/.ros/source/AIUI/audio/tts.wav' 
+
+```
+
+
+
+##### 语音合成
+
+```bash
+roscore 
+
+rosrun xf_ros tts_subscribe
+
+rostopic pub /voiceWords std_msgs/String "data: 'hello'" 
+```
+
+```bash
+# 替换speech_synthesis/libs/libmsc.so文件
+# 修改speech_synthesis/src/tts_test.cpp文件的appid
+roslaunch speech_synthesis speech_synthesis.launch 
+
+rosservice call /tts "text: '广州天气'" 
+```
+
+
+##### 语音小助手
+```bash
+roscore 
+
+rosrun xf_ros iat_publish
+
+rosrun xf_ros voice_assistant
+
+rostopic pub /voiceWakeup std_msgs/String "data: 'hello'"
+```
+
+
+
+### snowboy语音唤醒
+
+
+
+
+
+
+
+
+### hark
+##### 安装hark
+```bash
+# 添加源码源
+sudo bash -c 'echo -e "deb http://archive.hark.jp/harkrepos $(lsb_release -cs) non-free\ndeb-src http://archive.hark.jp/harkrepos $(lsb_release -cs) non-free" > /etc/apt/sources.list.d/hark.list'
+
+# 设置GPG密钥
+wget -q -O - http://archive.hark.jp/harkrepos/public.gpg | sudo apt-key add -
+
+# node.js安装
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# 更新源
+sudo apt update
+
+# 安装hark
+sudo apt install hark-base harkmw hark-core
+sudo apt install hark-designer
+sudo apt install harktool5 harktool5-gui
+sudo apt install kaldidecoder-hark
+```
+
+[安装教程](https://www.hark.jp/install/linux/)
+
+[HARK-ROS安装教程](https://www.hark.jp/packages/ros/turtlebot/)
+
+
+##### HARK-ROS使用
+
+[使用教程1](https://www.hark.jp/packages/ros/)
+
+[使用教程2](https://www.hark.jp/packages/ros/hark-ros-tutorials/)
+
+[HARK-ROS-IROS2018使用教程](https://www.hark.jp/hark-ros-iros2018-tutorials/)
+
+
+### rospeex
+
+##### 源码下载编译
+```bash
+git clone https://bitbucket.org/rospeex/rospeex.git
+```
+[源码地址](https://bitbucket.org/rospeex/rospeex/src/master/)
+
+
+### 图灵机器人的使用
 
 
 

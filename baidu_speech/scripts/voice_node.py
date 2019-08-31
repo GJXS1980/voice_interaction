@@ -36,7 +36,7 @@ class recoder():
 
    #self.savewav("testing")#testing
    
-   if_continue = raw_input('pls input ＥＮＴＥＲ to continue')
+   if_continue = raw_input('请按回车键继续聊天')
 
  def reg(self):
  

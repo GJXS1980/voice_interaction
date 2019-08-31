@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<launch>
+  
+ <node pkg="baidu_speech" type="simple_speek.py" name="simple_speek" output="screen" />
+
+ <node pkg="baidu_speech" type="voice_node.py" name="voice_node" output="screen" />
+
+</launch>
