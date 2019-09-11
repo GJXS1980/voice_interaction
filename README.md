@@ -489,13 +489,15 @@ sudo apt-get install python-pyaudio python3-pyaudio sox
 sudo apt-get install portaudio19-dev python-all-dev python3-all-dev
 sudo apt-get install libatlas-base-dev
 pip install pyaudio
-
+sudo apt-get install libpcre3 libpcre3-dev
 
 ```
 安装swing
 ```bash
 wget http://downloads.sourceforge.net/swig/swig-3.0.10.tar.gz
-sudo apt-get install libpcre3 libpcre3-dev
+
+cd swig-3.0.10
+
 ./configure --prefix=/usr                  \
         --without-clisp                    \
         --without-maximum-compile-warnings &&
