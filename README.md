@@ -116,7 +116,7 @@ sudo apt-get install python-gst0.10
 ```bash
 cd ~/catkin_ws/src
 svn co https://github.com/GJXS1980/voice_interaction/trunk/pocketsphinx
-cd voice_interaction/pocketsphinx/deb/
+cd pocketsphinx/deb/
 sudo dpkg -i *.deb
 cd ../model
 sudo cp /usr/share/pocketsphinx/model/* ~/catkin_ws/src/pocketsphinx/model -r
@@ -483,12 +483,71 @@ rostopic pub /voiceWakeup std_msgs/String "data: 'hello'"
 
 
 ### snowboy语音唤醒
+安装依赖
+```bash
+sudo apt-get install python-pyaudio python3-pyaudio sox
+sudo apt-get install portaudio19-dev python-all-dev python3-all-dev
+sudo apt-get install libatlas-base-dev
+pip install pyaudio
 
 
+```
+安装swing
+```bash
+wget http://downloads.sourceforge.net/swig/swig-3.0.10.tar.gz
+sudo apt-get install libpcre3 libpcre3-dev
+./configure --prefix=/usr                  \
+        --without-clisp                    \
+        --without-maximum-compile-warnings &&
+make
+sudo make install &&
+sudo install -v -m755 -d /usr/share/doc/swig-3.0.10 &&
+sudo cp -v -R Doc/* /usr/share/doc/swig-3.0.10
+```
+安装atlas
+```bash
+sudo apt-get install libatlas-base-dev
+```
 
+输入下面命令测试是否正常录音：
+```bash
+# 录音
+rec test.wav
 
+# 播放
+play test.wav
 
+```
+编译节点插件：
+```bash
+sudo apt-get install libmagic-dev libatlas-base-dev
 
+npm install
+./node_modules/node-pre-gyp/bin/node-pre-gyp clean configure build
+```
+
+下载源码
+```bash
+git clone https://github.com/Kitt-AI/snowboy.git
+
+```
+
+```bash
+cd snowboy/swig/Python
+
+# 编译引擎库
+make
+
+```
+测试：
+```bash
+cd snowboy/examples/Python
+
+python demo.py ./resources/models/snowboy.umdl
+```
+
+##### 自定义唤醒词
+首先登陆到官网注册账号：https://snowboy.kitt.ai/
 
 
 ### hark
@@ -542,6 +601,27 @@ git clone https://bitbucket.org/rospeex/rospeex.git
 
 
 
+### pip版本更新
+
+```bash
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+
+# python2
+python get-pip.py
+
+# python3
+python3 get-pip.py
+
+
+which pip 
+
+pip
+
+type pip
+
+hash -r
+
+```
 
 
 
