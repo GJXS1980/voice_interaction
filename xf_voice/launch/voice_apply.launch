@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<launch>
+	<include file="$(find xf_voice)/launch/audio_collect.launch"/>
+	<include file="$(find xf_voice)/launch/aiui_semantic.launch"/>
+	<include file="$(find xf_voice)/launch/speech_synthesis.launch"/>
+        <node pkg="xf_voice" type="voice_apply" name="voice_apply" output="screen">
+        </node>
+</launch>

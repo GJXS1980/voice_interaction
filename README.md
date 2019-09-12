@@ -420,7 +420,7 @@ catkin_make
 
 ##### 语音采集
 ```bash
-roslaunch audio_collect audio_collect.launch
+roslaunch xf_voice audio_collect.launch
 
 # 调用服务
 rosservice call /collect 1
@@ -440,9 +440,7 @@ rostopic pub /voiceWakeup std_msgs/String "data: 'hello'"
 
 ##### 语义识别
 ```bash
-
-
-roslaunch aiui_semantic aiui_semantic.launch 
+roslaunch xf_voice aiui_semantic.launch 
 
 rosservice call /aiui '/home/gjxs/.ros/source/AIUI/audio/tts.wav' 
 
@@ -455,7 +453,7 @@ rosservice call /aiui '/home/gjxs/.ros/source/AIUI/audio/tts.wav'
 ```bash
 roscore 
 
-rosrun xf_ros tts_subscribe
+rosrun xf_voice tts_subscribe
 
 rostopic pub /voiceWords std_msgs/String "data: 'hello'" 
 ```
@@ -463,7 +461,7 @@ rostopic pub /voiceWords std_msgs/String "data: 'hello'"
 ```bash
 # 替换speech_synthesis/libs/libmsc.so文件
 # 修改speech_synthesis/src/tts_test.cpp文件的appid
-roslaunch speech_synthesis speech_synthesis.launch 
+roslaunch xf_voice speech_synthesis.launch 
 
 rosservice call /tts "text: '广州天气'" 
 ```
@@ -473,9 +471,9 @@ rosservice call /tts "text: '广州天气'"
 ```bash
 roscore 
 
-rosrun xf_ros iat_publish
+rosrun xf_voice iat_publish
 
-rosrun xf_ros voice_assistant
+rosrun xf_voice voice_assistant
 
 rostopic pub /voiceWakeup std_msgs/String "data: 'hello'"
 ```
@@ -519,13 +517,6 @@ rec test.wav
 # 播放
 play test.wav
 
-```
-编译节点插件：
-```bash
-sudo apt-get install libmagic-dev libatlas-base-dev
-
-npm install
-./node_modules/node-pre-gyp/bin/node-pre-gyp clean configure build
 ```
 
 下载源码

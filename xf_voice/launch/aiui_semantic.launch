@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<launch>
+        <node pkg="xf_voice" type="aiui_semantic" name="aiui_semantic" output="screen">
+        </node>
+</launch>
+

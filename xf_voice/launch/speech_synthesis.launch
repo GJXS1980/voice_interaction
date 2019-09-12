@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<launch>
+	<node pkg="xf_voice" type="speech_synthesis" name="speech_synthesis" output="screen">
+	<param name="tts_audio_file" type="string" value="./source/AIUI/audio/tts.wav"/>
+	</node>
+</launch>

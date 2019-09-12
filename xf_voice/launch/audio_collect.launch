@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<launch>
+	<node pkg="xf_voice" type="audio_collect" name="audio_collect" output="screen">
+	<param name="audio_file" type="string" value="./source/AIUI/audio/1.wav"/>
+	</node>
+</launch>
